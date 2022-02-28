@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Actualiza
-      uses: actions/checkout@master
+      - uses: actions/checkout@master
+      - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
       with:
         run: pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
         entrypoint: ["/entrypoint.sh"]
