@@ -12,6 +12,7 @@ jobs:
     - name: Actualiza
       uses: actions/checkout@master
       with:
+        run: pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
         args: --acl public-read --follow-symlinks --delete
 
       env:
